@@ -1,0 +1,137 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  padding: 1rem 20%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 10%);
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 10%);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 10%);
+}
+
+header .logo {
+  width: 3rem;
+}
+
+header .title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1rem 20%;
+}
+
+.form-add-ingredient {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-add-ingredient input {
+  flex: 1;
+  padding: 0.25rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 15%);
+  border-radius: 0.5rem;
+}
+
+.form-add-ingredient input:focus {
+  outline: none;
+  border: 2px solid rgb(0, 113, 133);
+}
+
+.form-add-ingredient button {
+  color: white;
+  padding: 0.25rem 1rem;
+  background-color: hsl(0, 0%, 10%);
+  border-radius: 0.5rem;
+}
+
+footer {
+  padding: 1rem 20%;
+  text-align: center;
+  color: white;
+  background-color: darkgray;
+}
