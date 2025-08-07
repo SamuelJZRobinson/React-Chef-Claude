@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Ingredients from "./Ingredients";
 import ClaudeRecipe from "./ClaudeRecipe";
 
-export default function MainContent() {
+export default function Main() {
   const [ingredients, setIngredients] = useState([]);
   const [answer, setAnswer] = useState("");
+
+  const recipeSection = useRef(null);
+
+  useEffect(() => {
+    if (answer !== "" && recipeSection.current !== null) {
+      recipeSection.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [answer]);
 
   const API_BODY = {
     model: "gpt-4o",
@@ -40,6 +48,8 @@ export default function MainContent() {
     }
 
     setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
+
+    recipeSection.current?.scrollIntoView();
   }
 
   async function callOpenAIAPI() {
@@ -84,7 +94,10 @@ export default function MainContent() {
           Get a recipe
         </button>
       </div>
-      {answer !== "" ? <ClaudeRecipe output={answer} /> : null}
+
+      {answer !== "" ? (
+        <ClaudeRecipe output={answer} ref={recipeSection} />
+      ) : null}
     </main>
   );
 }

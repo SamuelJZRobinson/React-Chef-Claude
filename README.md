@@ -10,4 +10,5 @@
 
 # Notes
 
-- MainContent needs const OPENAI_API_KEY = "x"
+- Main needs const OPENAI_API_KEY = "x"
+- If a key is accidentally commited it will halt syncing. Use "git reset --soft HEAD~n" (n is total commits to go back where the k is contained).
